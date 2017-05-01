@@ -1,0 +1,69 @@
+
+/* Box Sizing */
+* {
+  box-sizing: border-box;
+}
+/* Grid:
+ *
+ *   960px wide including 12 gutters (half-gutters on edges)
+ *
+ *   60px columns (12)
+ *   20px gutters (2 half-gutters + 11 full gutters = 12 total)
+ *
+ **/
+.row {
+  max-width: 1000px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+}
+
+/* clearfix */
+.row::before,
+.row::after {
+  display: table;
+  content: '';
+}
+
+.row::after {
+  clear: both;
+}
+
+.col-3, .col-4, .col-6, .col-12 {
+  float: left;
+
+  /* Gutters:
+   * half-gutter padding = 10px, 10/960 = 1.041666%
+   */
+  padding-left: 1.04166666%;
+  padding-right: 1.04166666%;
+}
+
+/* Mobile Defaults */
+.col-3, .col-4, .col-6, .col-12 {
+  width: 100%;
+}
+
+
+/* Non-Mobile, Grid */
+@media only screen and (min-width: 640px) {
+  /* 3 columns, 3/12 in % */
+  .col-3 {
+    width: 25%;
+  }
+
+  /* 4 columns, 4/12 in % */
+  .col-4 {
+    width: 33.333333%;
+  }
+
+  /* 6 columns, 6/12 in % */
+  .col-6 {
+    width: 50%;
+  }
+
+  /* 12 columns, 12/12 */
+  .col-12 {
+    width: 100%;
+  }
+}
